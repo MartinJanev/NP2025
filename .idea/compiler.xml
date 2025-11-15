@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/src/Kolokviumski/first10/Shapes1/Shapes1Test.java" />
+      <file url="file://$PROJECT_DIR$/src/Aud/aud3/kol/ExecuteAndSortTest.java" />
+      <file url="file://$PROJECT_DIR$/src/Kolokviumski/first10/FileSystemTest.java" />
+      <file url="file://$PROJECT_DIR$/src/Kolokviumski/first10/Shapes2/Shapes2Test.java" />
+      <file url="file://$PROJECT_DIR$/src/Kolokviumski/second10/EvaluatorTest.java" />
+    </excludeFromCompile>
+  </component>
+</project>

@@ -63,7 +63,7 @@ class MovieTheater {
             double averageRating = Arrays
                     .stream(ratingLine.trim().split("\\s+"))
                     .mapToDouble(Double::parseDouble)
-                    .sum() / ratingLine.trim().split("\\s+").length;
+                    .average().orElse(0.0);
 
             movies.add(new Movie(title, genre, year, averageRating));
             movieCount--; // Decrement the count after processing a movie
