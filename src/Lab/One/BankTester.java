@@ -79,6 +79,8 @@ abstract class Transaction {
         return description;
     }
 
+    public abstract double getProvision();
+
     @Override
     public int hashCode() {
         return Objects.hash(fromId, toId, description, amount);
@@ -122,6 +124,11 @@ class FlatAmountProvisionTransaction extends Transaction {
     }
 
     @Override
+    public double getProvision() {
+        return flatAmount;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(getFromId(), getToId(), getAmount(), getFlatAmount());
     }
@@ -150,6 +157,11 @@ class FlatPercentProvisionTransaction extends Transaction {
                 this.getToId() == o.getToId() &&
                 Double.compare(this.getAmount(), o.getAmount()) == 0 &&
                 this.getPercent() == o.getPercent();
+    }
+
+    @Override
+    public double getProvision() {
+        return getAmount() * percent / 100;
     }
 
     @Override
@@ -191,13 +203,8 @@ class Bank {
         double amount = t.getAmount();
         if (amount < 0) return false;
 
-        double provision = 0.0;
+        double provision = t.getProvision();
 
-        if (t instanceof FlatAmountProvisionTransaction) {
-            provision = ((FlatAmountProvisionTransaction) t).getFlatAmount();
-        } else if (t instanceof FlatPercentProvisionTransaction) {
-            provision = amount * ((FlatPercentProvisionTransaction) t).getPercent() / 100.0;
-        }
         double totalDebit = amount + provision;
         if (from.getBalance() < totalDebit) {
             return false;
