@@ -7,6 +7,8 @@
       <file url="file://$PROJECT_DIR$/src/Kolokviumski/first10/FileSystemTest.java" />
       <file url="file://$PROJECT_DIR$/src/Kolokviumski/first10/Shapes2/Shapes2Test.java" />
       <file url="file://$PROJECT_DIR$/src/Kolokviumski/second10/EvaluatorTest.java" />
+      <file url="file://$PROJECT_DIR$/src/Lab/Four/SchedulerTest.java" />
+      <file url="file://$PROJECT_DIR$/src/Lab/Four/SetsTest.java" />
     </excludeFromCompile>
   </component>
 </project>

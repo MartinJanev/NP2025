@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 //101 salad pizza salad soup
 
@@ -41,9 +42,15 @@ class Person implements Comparable<Person> {
         long id = Long.parseLong(fields[0]);
         List<String> meals = new ArrayList<>();
 
-        for (int i = 1; i < fields.length; i++) {
-            meals.add(fields[i]);
-        }
+//        for (int i = 1; i < fields.length; i++) {
+//            meals.add(fields[i]);
+//        }
+
+//        meals = Arrays.stream(fields).skip(1).collect(Collectors.toList());
+
+        IntStream.range(1, fields.length)
+                .forEach(i -> meals.add(fields[i]));
+
         return new Person(id, meals);
     }
 
